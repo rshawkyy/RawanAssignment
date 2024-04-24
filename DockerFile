@@ -1,0 +1,11 @@
+FROM 3.9.19
+
+WORKDIR /app
+
+COPY para.py /app/
+COPY paragraph.txt /app/
+
+RUN pip install --no-cache-dir nltk
+RUN python -c *import nltk; nltk.download('punkt')*
+
+CMD [*python*, *para.py*]
